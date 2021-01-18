@@ -1,5 +1,3 @@
-import React from 'react'
-
 const initialState = [];
 function reducer (state = initialState, action) {
     switch (action.type) {
