@@ -1,4 +1,5 @@
-import { combineReducers, createStore } from 'redux'
+import { combineReducers, createStore, applyMiddleware, compose } from 'redux'
+import thunk from 'redux-thunk'
 
 import gridReducer from '../features/Grid/reducer'
 
@@ -8,6 +9,9 @@ let rootReducers = combineReducers({
 });
 // ------ END GABUNGKAN REDUCERS -------
 
-let store = createStore(rootReducers); // <--- buat store memanfaatkan fungsi createStore 
+// buat `composeEnhancers` (2) 
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+let store = createStore(rootReducers, composeEnhancers(applyMiddleware(thunk))); // <--- buat store memanfaatkan fungsi createStore 
 
 export default store
