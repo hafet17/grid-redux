@@ -7,6 +7,7 @@ import Grid from './components/Grid'
 function App () {
   return (
     <div>
+      <h2>Latihan Redux</h2>
       <Provider store={Store} >
         <Grid />
       </Provider>
